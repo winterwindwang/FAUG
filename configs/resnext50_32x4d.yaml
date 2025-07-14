@@ -1,0 +1,44 @@
+NOISE:
+  layer: "conv"        # 噪声加在哪层  layer1 layer2 layer3 layer4
+  process_type: 'noise'  # 噪声类型
+  partial: 0.5           # 排序后划分比例
+  feat_sort_type: var  # 特征排序方式，按特征图方差var进行排序  choice [var, minmax, channel_mean]
+  is_partial: False       # 有区分性的添加噪声()
+  noise_type: 'normal'   # 注入噪声类型，高斯噪声
+  NORMAL:
+    mean1: 0.0             # 高斯噪声均值（重要部分均值）
+    mean2: 0.0             # 高斯噪声均值（不重要部分均值），USED when is_partial=True
+    std1: 0.3              # 高斯噪声方差（重要部分均值）# round1 small dataset: 0.3 => 0.2 => 0.3
+    std2: 0.05              # 高斯噪声方差（不重要部分均值）std若为零则说明仅改变前半部分的值
+  UNIFORM:
+     lower1: -0.2          # 噪声上界（重要部分均值）
+     upper1: 0.2           # 噪声上界（重要部分均值）
+     lower2: -0.2          # 噪声上界（不重要部分均值）
+     upper2: 0.2           # 噪声上界（不重要部分均值）
+
+DROPOUT:
+  layer: "layer2"
+  process_type: 'dropout'
+  dropout_p: 0.2
+
+EXTRAPOLATION:
+  layer: "layer2"
+  process_type: 'extrapolation'
+  lambda1: 0.5     # 有区分性的添加噪声  fi = (fi - fj) * lambda + fi, fj是fi的相似特征，原文是指类别相同的最相邻的K个特征中采样的
+
+SIGNIFICANT_FEATURE:
+  layer: "layer2"        # 噪声加在哪层  layer1 layer2 layer3 layer4
+  process_type: 'noise'  # 噪声类型
+  partial: 0.5           # 排序后划分比例
+  noise_type: 'normal'   # 注入噪声类型，高斯噪声  # normal, uniform
+  NORMAL:
+    mean1: 0.0             # 高斯噪声均值（重要部分均值）
+    mean2: 0.0             # 高斯噪声均值（不重要部分均值），USED when is_partial=True
+    std1: 0.2              # 高斯噪声方差（重要部分均值）
+    std2: 0.05              # 高斯噪声方差（不重要部分均值）std若为零则说明仅改变前半部分的值
+  UNIFORM:
+    lower1: -0.2          # 噪声上界（重要部分均值）
+    upper1: 0.2           # 噪声上界（重要部分均值）
+    lower2: -0.2          # 噪声上界（不重要部分均值）
+    upper2: 0.2           # 噪声上界（不重要部分均值）
+

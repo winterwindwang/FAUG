@@ -1,0 +1,1 @@
+# python main.py --input_dir F:\ComparisonMethodPro\TransferAttack\data_targeted --output_dir Adv_data/admix/resnet50 --attack mifgsm  --model=resnet50

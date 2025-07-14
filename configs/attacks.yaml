@@ -1,0 +1,84 @@
+MIFGSM:
+  eps: 16.0
+  steps: 10
+  decay: 1.0
+  # alpha: 1.6
+
+EnsMIFGSM:
+  eps: 16.0
+  steps: 10
+  decay: 1.0
+  # alpha: 1.6
+
+DIFGSM:
+  eps: 16.0
+  steps: 10
+  decay: 0.0
+  resize_rate: 0.9
+  diversity_prob: 0.5
+  random_start: False
+  # alpha: 1.6
+
+TIFGSM:
+  eps: 16.0
+  steps: 10
+  decay: 0.0
+  kernel_name: 'gaussian'
+  len_kernel: 15
+  nsig: 3
+  resize_rate: 0.9
+  diversity_prob: 0.5
+  random_start: False
+  # alpha: 1.6
+
+NIFGSM:
+  eps: 16.0
+  steps: 10
+  decay: 1.0
+  # alpha: 1.6
+  
+VNIFGSM:
+  eps: 16.0
+  steps: 10
+  decay: 1.0
+  N: 20
+  beta: 1.5
+  # alpha: 1.6
+
+VMIFGSM:
+  eps: 16.0
+  steps: 10
+  decay: 1.0
+  N: 20
+  beta: 1.5
+  # alpha: 1.6
+  
+SINIFGSM:
+  eps: 16.0
+  steps: 10
+  decay: 1.0
+  m: 5
+  # alpha: 1.6
+
+SSIFGSM:
+  eps: 16.0
+  rho: 0.5
+  N: 20  # default is 20
+  steps: 10
+  decay: 1.0
+  random_start: True
+  # alpha: 1.6
+
+AMVIFGSM:
+  eps: 16.0
+  N: 20  # default is 20
+  steps: 10
+  decay: 1.0
+  random_start: True
+  # alpha: 1.6
+
+ADMIXIFGSM:
+  eps: 16.0
+  M: 3
+  portion: 0.2
+  # alpha: 1.6
